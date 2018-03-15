@@ -2,4 +2,8 @@
     <string name="app_name">MovieApp</string>
     <string name="try_again">Try Again</string>
     <string name="no_internet_title">Please check your internet connection.</string>
+    <string name="movie_category">Movie Category</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="no_data_available">No data Available.</string>
+    <string name="upcoming_movies">Upcoming</string>
 </resources>
