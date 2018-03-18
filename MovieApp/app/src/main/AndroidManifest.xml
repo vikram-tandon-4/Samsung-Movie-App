@@ -14,6 +14,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activitiy.MovieActivity"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activitiy.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

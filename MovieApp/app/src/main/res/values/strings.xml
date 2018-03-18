@@ -6,4 +6,6 @@
     <string name="now_playing">Now Playing</string>
     <string name="no_data_available">No data Available.</string>
     <string name="upcoming_movies">Upcoming</string>
+    <string name="movies">Movies</string>
+    <string name="popularity">Popularity:&#160;</string>
 </resources>

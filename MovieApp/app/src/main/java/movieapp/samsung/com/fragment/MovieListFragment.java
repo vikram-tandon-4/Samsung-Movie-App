@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import movieapp.samsung.com.R;
+import movieapp.samsung.com.adapter.MovieAdapter;
 import movieapp.samsung.com.model.Results;
 
 
@@ -23,16 +24,14 @@ public class MovieListFragment extends Fragment {
     private View view;
     private RecyclerView rvMovieList;
     private static String MOVIES ="movies";
-    private static String TITLE_HEADING = "TitleHeading";
 
-public static MovieListFragment newInstance(ArrayList<Results> movies, String title) {
-    MovieListFragment fragment = new MovieListFragment();
-    Bundle bundleMessageList = new Bundle();
-    bundleMessageList.putSerializable(MOVIES, movies);
-    bundleMessageList.putString(TITLE_HEADING, title);
-    fragment.setArguments(bundleMessageList);
-    return fragment;
-}
+    public static MovieListFragment newInstance(ArrayList<Results> movies) {
+        MovieListFragment fragment = new MovieListFragment();
+        Bundle bundleMessageList = new Bundle();
+        bundleMessageList.putSerializable(MOVIES, movies);
+        fragment.setArguments(bundleMessageList);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,14 +50,14 @@ public static MovieListFragment newInstance(ArrayList<Results> movies, String ti
  *
  * ****/
     private void setupMovieList() {
-        ArrayList<String> messagesList = new ArrayList<>();
-        messagesList= (ArrayList<String>) getArguments().get(MOVIES);
-        if (messagesList != null && messagesList.size()>0) {
+        ArrayList<Results> moviesList = new ArrayList<>();
+        moviesList= (ArrayList<Results>) getArguments().get(MOVIES);
+        if (moviesList != null && moviesList.size()>0) {
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
             rvMovieList.setLayoutManager(mLayoutManager);
             rvMovieList.setItemAnimator(new DefaultItemAnimator());
-//            MessageListAdapter mAdapter = new MessageListAdapter(messagesList,getActivity(),);
-//            rvMovieList.setAdapter(mAdapter);
+            MovieAdapter mAdapter = new MovieAdapter(moviesList,getActivity());
+            rvMovieList.setAdapter(mAdapter);
         } else {
             tvNoData.setVisibility(View.VISIBLE);
         }

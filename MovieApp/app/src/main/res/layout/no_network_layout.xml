@@ -44,5 +44,4 @@
             android:textSize="@dimen/sp18">
         </Button>
     </LinearLayout>
-
 </RelativeLayout>
